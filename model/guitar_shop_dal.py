@@ -37,5 +37,15 @@ def get_all_categories():
             rows = cursor.fetchall()
     except sqlite3.Error as e:
         print(f"Failed to fetch data from database: {e}")
-    return rows
-print(get_all_categories())
+    return [row[0]] for row in rows]
+
+def get_all_products_in_category(category):
+    rows = None
+    try:
+        with get_connection() as conn:
+            cursor = conn.cursor()
+            cursor.execute('''
+            SELECT Product.code, Product.name, Product.price
+            FROM Product JOIN category ON Product.category_id = category.id
+                           WHERE category.id = ?''')
+
