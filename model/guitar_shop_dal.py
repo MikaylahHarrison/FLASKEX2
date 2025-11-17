@@ -30,14 +30,14 @@ def get_all_categories():
     try:
         with get_connection() as conn:
             cursor = conn.cursor()
-            cursor.excecute("""
+            cursor.execute("""
             SELECT name FROM Category
             ORDER BY category_id 
             """)
             rows = cursor.fetchall()
     except sqlite3.Error as e:
         print(f"Failed to fetch data from database: {e}")
-    return [row[0]] for row in rows]
+    return [row[0] for row in rows]
 
 def get_all_products_in_category(category):
     rows = None
@@ -47,5 +47,10 @@ def get_all_products_in_category(category):
             cursor.execute('''
             SELECT Product.code, Product.name, Product.price
             FROM Product JOIN category ON Product.category_id = category.id
-                           WHERE category.id = ?''')
+                           WHERE category.name = ?
+                           ''', [category])
+            rows = cursor.fetchall()
+    except sqlite3.Error as e:
+        print(f"Failed to fetch data from database: {e}")
+    return rows
 

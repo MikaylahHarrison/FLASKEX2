@@ -12,3 +12,4 @@ from model import guitar_shop_dal as db
 # if __name__ == '__main__':
 #     app.run()
 
+print(db.get_all_categories())
