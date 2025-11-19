@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0c089002-5b9a-42b6-9ce1-f24a8502615c" name="Changes" comment="9.19">
-      <change beforePath="$PROJECT_DIR$/.idea/data_source_mapping.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/guitar_shop_dal.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/guitar_shop_dal.py" afterDir="false" />
     </list>
@@ -124,6 +123,7 @@
       <workItem from="1763134016818" duration="1588000" />
       <workItem from="1763393301347" duration="2521000" />
       <workItem from="1763479717420" duration="1879000" />
+      <workItem from="1763566793154" duration="1460000" />
     </task>
     <task id="LOCAL-00001" summary="9.19">
       <option name="closed" value="true" />

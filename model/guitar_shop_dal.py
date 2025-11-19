@@ -75,3 +75,26 @@ def add_product(category, name, code, price):
         except ValueError as e:
             print(e)
 
+def delete_product(code):
+   try:
+       with get_connection() as conn:
+   cursor = get_connection()
+   cursor.execute('''
+                  SELECT product_id
+                  FROM Product
+                  WHERE code = ?
+                  ''', [code]))
+   row = cursor.fetchone()
+   if row is None:
+       raise ValueError(f"Product {code} does not exist")
+
+    product_id = row[0]
+    cursor.execute('''
+    DELETE FROM Product WHERE product_id = ?
+        ''', [product_id])
+        conn.commit()
+            except sqlite3.Error as e:
+        print(f"Failed to delete product from database: {e}")
+            except ValueError as e:
+        print(e)
+
